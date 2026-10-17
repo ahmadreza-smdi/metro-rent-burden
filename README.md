@@ -68,3 +68,18 @@ Original code in this package is MIT; see LICENSE. Input federal Census statisti
 
 CITATION.cff identifies the analysis author and data year. Cite the underlying Census table as well as this analysis.
 
+## Suggested plain-text credits
+
+For the analysis and code:
+
+> Samadi, Ahmadreza (2026). Metro rent burden: reproducible ACS 2024 point estimates (software version 1.1.1). https://github.com/ahmadreza-smdi/metro-rent-burden/releases/tag/v1.1.1
+
+For the underlying statistics:
+
+> U.S. Census Bureau. 2024 American Community Survey, 1-year estimates, Table B25070. https://data.census.gov/table/ACSDT1Y2024.B25070
+
+If you also use the field dictionary:
+
+> Samadi, Ahmadreza (2026). Rent-burden CSV field guide — ACS 2024 (repository commit 12005f17005124c1485e093de12f59312af5c430). https://github.com/ahmadreza-smdi/metro-rent-burden/blob/12005f17005124c1485e093de12f59312af5c430/DATA-DICTIONARY.txt
+
+These are suggested credits, not a certified citation style. The survey year is 2024; the analysis software release is dated 2026. Record the version or full commit you actually used. The field guide is a separate documentation companion and is not included in the version 1.1.1 archive. No DOI, agency endorsement, peer review or independent reuse is implied by these examples.
