@@ -1,0 +1,172 @@
+RENT-BURDEN CSV FIELD GUIDE — ACS2024
+===================================
+
+Original analysis dictionary by Ahmadreza Samadi: https://a-samadi.com/about.html
+AI-assisted preparation; this is an analysis companion, not Census certification.
+
+Scope: 386 selected whole metros; 35 columns. Source year 2024 is historical.
+This is separate from the earlier 393-metro HUD rent/ownership study.
+
+READ BEFORE COMPARING
+- rent_30plus_pct and rent_50plus_pct use computable_units, excluding not computed.
+- not_computed_pct_all_renters uses renter_units_total, including not computed.
+- All three CSV percentage columns use 0–100, not 0–1. Do not apply a spreadsheet
+  percent format to 57.8 without first dividing by 100; it would display 5780%.
+- The 50% group is inside the 30% group. Never add their shares.
+- Blank means unavailable, not zero. Negative source sentinel tokens are not counts.
+- The 11 M columns are source-count margins of error, not derived-percentage errors.
+  No significance ranking is established.
+- Keep geo_id/cbsa_code as strings; do not infer equivalence with another vintage.
+
+FIELDS IN CSV ORDER
+-------------------
+geo_id | string | identifier
+Exact GEO_ID from the source geography file; keep as text, including its geography-vintage marker.
+
+cbsa_code | string | identifier
+Five-character CBSA code from the source geography file; preserve text and leading zeros.
+
+metro_name | string | label
+Published whole metropolitan-area label, not a property or city-only boundary.
+
+survey_year | integer | year
+ACS 1-year source year, not download year or current market year.
+
+status | string | status
+Analysis availability status. This fixed released snapshot contains only ok. The builder can also report unavailable source estimate or zero computable denominator.
+
+renter_units_total | integer_or_blank | housing units
+Total renter-occupied housing units; not a count of people or only cash-rent units.
+Formula: B25070_E001
+
+not_computed_units | integer_or_blank | housing units
+Units for which the source ratio is not computed; retained separately, not treated as zero burden.
+Formula: B25070_E011
+
+computable_units | integer_or_blank | housing units
+Denominator for the two threshold percentages.
+Formula: B25070_E001 - B25070_E011
+
+rent_30plus_units | integer_or_blank | housing units
+Units in the published 30.0%-or-more bins.
+Formula: B25070_E007 + B25070_E008 + B25070_E009 + B25070_E010
+
+rent_50plus_units | integer_or_blank | housing units
+Units in the published 50.0%-or-more bin; a subset of rent_30plus_units.
+Formula: B25070_E010
+
+rent_30plus_pct | number_or_blank | percent (0–100)
+Share of computable units at 30.0% or more, rounded to six decimals; not a 0–1 fraction.
+Formula: 100 * rent_30plus_units / computable_units
+Blank if: computable_units is zero or source estimate unavailable
+
+rent_50plus_pct | number_or_blank | percent (0–100)
+Share of computable units at 50.0% or more; nested inside the 30% group. Do not add these percentages.
+Formula: 100 * rent_50plus_units / computable_units
+Blank if: computable_units is zero or source estimate unavailable
+
+not_computed_pct_all_renters | number_or_blank | percent (0–100)
+Share of all renter-occupied units with a not-computed ratio; its denominator differs from the two burden percentages.
+Formula: 100 * not_computed_units / renter_units_total
+Blank if: renter_units_total is zero or source estimate unavailable
+
+B25070_E001 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_001E: Estimate!!Total:
+
+B25070_M001 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_001M: Margin of Error!!Total:
+
+B25070_E002 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_002E: Estimate!!Total:!!Less than 10.0 percent
+
+B25070_M002 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_002M: Margin of Error!!Total:!!Less than 10.0 percent
+
+B25070_E003 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_003E: Estimate!!Total:!!10.0 to 14.9 percent
+
+B25070_M003 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_003M: Margin of Error!!Total:!!10.0 to 14.9 percent
+
+B25070_E004 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_004E: Estimate!!Total:!!15.0 to 19.9 percent
+
+B25070_M004 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_004M: Margin of Error!!Total:!!15.0 to 19.9 percent
+
+B25070_E005 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_005E: Estimate!!Total:!!20.0 to 24.9 percent
+
+B25070_M005 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_005M: Margin of Error!!Total:!!20.0 to 24.9 percent
+
+B25070_E006 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_006E: Estimate!!Total:!!25.0 to 29.9 percent
+
+B25070_M006 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_006M: Margin of Error!!Total:!!25.0 to 29.9 percent
+
+B25070_E007 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_007E: Estimate!!Total:!!30.0 to 34.9 percent
+
+B25070_M007 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_007M: Margin of Error!!Total:!!30.0 to 34.9 percent
+
+B25070_E008 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_008E: Estimate!!Total:!!35.0 to 39.9 percent
+
+B25070_M008 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_008M: Margin of Error!!Total:!!35.0 to 39.9 percent
+
+B25070_E009 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_009E: Estimate!!Total:!!40.0 to 49.9 percent
+
+B25070_M009 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_009M: Margin of Error!!Total:!!40.0 to 49.9 percent
+
+B25070_E010 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_010E: Estimate!!Total:!!50.0 percent or more
+
+B25070_M010 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_010M: Margin of Error!!Total:!!50.0 percent or more
+
+B25070_E011 | source_integer_token | housing units
+Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_011E: Estimate!!Total:!!Not computed
+
+B25070_M011 | source_integer_token | housing units
+Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.
+Official metadata B25070_011M: Margin of Error!!Total:!!Not computed
+
+MACHINE-READABLE DICTIONARY AND CHECK
+------------------------------------
+data-dictionary.json preserves exact source labels and all 35 columns in order.
+It uses a small custom JSON format; no external schema-standard conformity is claimed.
+Run from the repository root: python verify_dictionary.py
+The checker validates this fixed 2024 snapshot: header, file hashes, source labels,
+386 unique rows and all derived counts/percentage relationships.
+It does not recalculate uncertainty, test Excel, or prove correct future vintages.
+
+For source selection, gross-rent definitions, reuse exceptions and citation,
+read README.md and CITATION.cff; retain attribution to the underlying Census table.
+Data values, chart and workbook are unchanged by this documentation companion.

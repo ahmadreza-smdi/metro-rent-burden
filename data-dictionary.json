@@ -1,0 +1,354 @@
+{
+  "dictionary_format": "Ahmadreza Samadi analysis dictionary; custom JSON format, not an asserted external schema standard",
+  "format_version": 1,
+  "author": {
+    "name": "Ahmadreza Samadi",
+    "url": "https://a-samadi.com/about.html"
+  },
+  "ai_assistance": "Prepared with AI assistance and separately reviewed against source metadata and build logic.",
+  "dataset": {
+    "file": "metro-rent-burden-2024.csv",
+    "sha256": "3f4f802c00efda62f2166cf0f6cfef99d0046becda55ba35c9563c232d84821f",
+    "survey_year": 2024,
+    "rows": 386,
+    "columns": 35,
+    "row_key": "geo_id",
+    "secondary_unique_key": "cbsa_code",
+    "scope": "Selected whole metropolitan areas in 50 states/DC from ACS2024 1-year; not the 393-metro HUD-study universe."
+  },
+  "source_metadata": {
+    "file": "raw/2024-b25070-variables.json",
+    "sha256": "ae973f9889e12c0571e7c6cc4fcd1fc96afc3c3b69daf0fde17b37aada5faf9c",
+    "url": "https://api.census.gov/data/2024/acs/acs1/groups/B25070.json",
+    "universe": "Renter-occupied housing units"
+  },
+  "missing_values": {
+    "derived": "Blank CSV cell means unavailable. Never replace it with zero. Real zero counts or zero shares remain zero.",
+    "raw": "Source integer tokens retained verbatim. Negative sentinels/non-count tokens must not be treated as counts or silently coerced to zero. This fixed released snapshot has nonnegative estimate/MOE tokens.",
+    "status": "Read status before interpreting derived cells. No percentage margin of error has been calculated."
+  },
+  "limits": [
+    "Shares describe the source-tabulated gross-rent-to-household-income ratio, not current asking rent, property yield or investment rank.",
+    "All 11 source estimate/MOE pairs retained; derived percentage MOE and statistical significance are not established.",
+    "A field dictionary does not certify the original survey, authenticate a modified receipt or establish a real company result.",
+    "Original dictionary and checker are MIT; underlying Census statistics retain the source status and exceptions discussed in README.md."
+  ],
+  "fields": [
+    {
+      "name": "geo_id",
+      "kind": "string",
+      "unit": "identifier",
+      "meaning": "Exact GEO_ID from the source geography file; keep as text, including its geography-vintage marker."
+    },
+    {
+      "name": "cbsa_code",
+      "kind": "string",
+      "unit": "identifier",
+      "meaning": "Five-character CBSA code from the source geography file; preserve text and leading zeros."
+    },
+    {
+      "name": "metro_name",
+      "kind": "string",
+      "unit": "label",
+      "meaning": "Published whole metropolitan-area label, not a property or city-only boundary."
+    },
+    {
+      "name": "survey_year",
+      "kind": "integer",
+      "unit": "year",
+      "meaning": "ACS 1-year source year, not download year or current market year.",
+      "expected": 2024
+    },
+    {
+      "name": "status",
+      "kind": "string",
+      "unit": "status",
+      "meaning": "Analysis availability status. This fixed released snapshot contains only ok. The builder can also report unavailable source estimate or zero computable denominator.",
+      "values_in_this_snapshot": [
+        "ok"
+      ]
+    },
+    {
+      "name": "renter_units_total",
+      "kind": "integer_or_blank",
+      "unit": "housing units",
+      "meaning": "Total renter-occupied housing units; not a count of people or only cash-rent units.",
+      "formula": "B25070_E001"
+    },
+    {
+      "name": "not_computed_units",
+      "kind": "integer_or_blank",
+      "unit": "housing units",
+      "meaning": "Units for which the source ratio is not computed; retained separately, not treated as zero burden.",
+      "formula": "B25070_E011"
+    },
+    {
+      "name": "computable_units",
+      "kind": "integer_or_blank",
+      "unit": "housing units",
+      "meaning": "Denominator for the two threshold percentages.",
+      "formula": "B25070_E001 - B25070_E011"
+    },
+    {
+      "name": "rent_30plus_units",
+      "kind": "integer_or_blank",
+      "unit": "housing units",
+      "meaning": "Units in the published 30.0%-or-more bins.",
+      "formula": "B25070_E007 + B25070_E008 + B25070_E009 + B25070_E010"
+    },
+    {
+      "name": "rent_50plus_units",
+      "kind": "integer_or_blank",
+      "unit": "housing units",
+      "meaning": "Units in the published 50.0%-or-more bin; a subset of rent_30plus_units.",
+      "formula": "B25070_E010"
+    },
+    {
+      "name": "rent_30plus_pct",
+      "kind": "number_or_blank",
+      "unit": "percent (0–100)",
+      "meaning": "Share of computable units at 30.0% or more, rounded to six decimals; not a 0–1 fraction.",
+      "formula": "100 * rent_30plus_units / computable_units",
+      "denominator": "computable_units",
+      "blank_if": "computable_units is zero or source estimate unavailable"
+    },
+    {
+      "name": "rent_50plus_pct",
+      "kind": "number_or_blank",
+      "unit": "percent (0–100)",
+      "meaning": "Share of computable units at 50.0% or more; nested inside the 30% group. Do not add these percentages.",
+      "formula": "100 * rent_50plus_units / computable_units",
+      "denominator": "computable_units",
+      "blank_if": "computable_units is zero or source estimate unavailable"
+    },
+    {
+      "name": "not_computed_pct_all_renters",
+      "kind": "number_or_blank",
+      "unit": "percent (0–100)",
+      "meaning": "Share of all renter-occupied units with a not-computed ratio; its denominator differs from the two burden percentages.",
+      "formula": "100 * not_computed_units / renter_units_total",
+      "denominator": "renter_units_total",
+      "blank_if": "renter_units_total is zero or source estimate unavailable"
+    },
+    {
+      "name": "B25070_E001",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_001E",
+      "source_label": "Estimate!!Total:",
+      "source_role": "estimate",
+      "paired_field": "B25070_M001"
+    },
+    {
+      "name": "B25070_M001",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_001M",
+      "source_label": "Margin of Error!!Total:",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E001"
+    },
+    {
+      "name": "B25070_E002",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_002E",
+      "source_label": "Estimate!!Total:!!Less than 10.0 percent",
+      "source_role": "estimate",
+      "paired_field": "B25070_M002"
+    },
+    {
+      "name": "B25070_M002",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_002M",
+      "source_label": "Margin of Error!!Total:!!Less than 10.0 percent",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E002"
+    },
+    {
+      "name": "B25070_E003",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_003E",
+      "source_label": "Estimate!!Total:!!10.0 to 14.9 percent",
+      "source_role": "estimate",
+      "paired_field": "B25070_M003"
+    },
+    {
+      "name": "B25070_M003",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_003M",
+      "source_label": "Margin of Error!!Total:!!10.0 to 14.9 percent",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E003"
+    },
+    {
+      "name": "B25070_E004",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_004E",
+      "source_label": "Estimate!!Total:!!15.0 to 19.9 percent",
+      "source_role": "estimate",
+      "paired_field": "B25070_M004"
+    },
+    {
+      "name": "B25070_M004",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_004M",
+      "source_label": "Margin of Error!!Total:!!15.0 to 19.9 percent",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E004"
+    },
+    {
+      "name": "B25070_E005",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_005E",
+      "source_label": "Estimate!!Total:!!20.0 to 24.9 percent",
+      "source_role": "estimate",
+      "paired_field": "B25070_M005"
+    },
+    {
+      "name": "B25070_M005",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_005M",
+      "source_label": "Margin of Error!!Total:!!20.0 to 24.9 percent",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E005"
+    },
+    {
+      "name": "B25070_E006",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_006E",
+      "source_label": "Estimate!!Total:!!25.0 to 29.9 percent",
+      "source_role": "estimate",
+      "paired_field": "B25070_M006"
+    },
+    {
+      "name": "B25070_M006",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_006M",
+      "source_label": "Margin of Error!!Total:!!25.0 to 29.9 percent",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E006"
+    },
+    {
+      "name": "B25070_E007",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_007E",
+      "source_label": "Estimate!!Total:!!30.0 to 34.9 percent",
+      "source_role": "estimate",
+      "paired_field": "B25070_M007"
+    },
+    {
+      "name": "B25070_M007",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_007M",
+      "source_label": "Margin of Error!!Total:!!30.0 to 34.9 percent",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E007"
+    },
+    {
+      "name": "B25070_E008",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_008E",
+      "source_label": "Estimate!!Total:!!35.0 to 39.9 percent",
+      "source_role": "estimate",
+      "paired_field": "B25070_M008"
+    },
+    {
+      "name": "B25070_M008",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_008M",
+      "source_label": "Margin of Error!!Total:!!35.0 to 39.9 percent",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E008"
+    },
+    {
+      "name": "B25070_E009",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_009E",
+      "source_label": "Estimate!!Total:!!40.0 to 49.9 percent",
+      "source_role": "estimate",
+      "paired_field": "B25070_M009"
+    },
+    {
+      "name": "B25070_M009",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_009M",
+      "source_label": "Margin of Error!!Total:!!40.0 to 49.9 percent",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E009"
+    },
+    {
+      "name": "B25070_E010",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_010E",
+      "source_label": "Estimate!!Total:!!50.0 percent or more",
+      "source_role": "estimate",
+      "paired_field": "B25070_M010"
+    },
+    {
+      "name": "B25070_M010",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_010M",
+      "source_label": "Margin of Error!!Total:!!50.0 percent or more",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E010"
+    },
+    {
+      "name": "B25070_E011",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published estimate. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_011E",
+      "source_label": "Estimate!!Total:!!Not computed",
+      "source_role": "estimate",
+      "paired_field": "B25070_M011"
+    },
+    {
+      "name": "B25070_M011",
+      "kind": "source_integer_token",
+      "unit": "housing units",
+      "meaning": "Published margin of error for the matching estimate; not the error of a derived percentage. Source token retained; a sentinel is not a valid count and never becomes zero.",
+      "source_variable": "B25070_011M",
+      "source_label": "Margin of Error!!Total:!!Not computed",
+      "source_role": "margin_of_error",
+      "paired_field": "B25070_E011"
+    }
+  ]
+}

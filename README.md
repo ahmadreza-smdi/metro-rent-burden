@@ -40,6 +40,10 @@ ACS figures are survey estimates, not an exact respondent count. The CSV preserv
 
 The chart chooses the ten largest computable renter-unit denominators and displays them alphabetically. It does not choose the highest burden figures or rank statistical differences. Both threshold series overlap. See chart-alt-2024.txt for full alt text. No Census logo, endorsement, agency certification or new visual identity is implied.
 
+## CSV field dictionary
+
+The [35-column field guide](DATA-DICTIONARY.txt) and [custom JSON dictionary](data-dictionary.json) describe every column in CSV order, including the two different percentage denominators, the 0–100 percentage scale and all 11 source estimate/margin-of-error pairs. Run `python verify_dictionary.py` from the current repository root to check this fixed 2024 snapshot against the dictionary and preserved source metadata. The checker does not validate future vintages, derive percentage uncertainty or test Excel. This repository documentation companion is newer than the v1.1.1 release archive; the published CSV, chart and workbook are unchanged.
+
 ## Excel companion
 
 [Download the filterable workbook](https://github.com/ahmadreza-smdi/metro-rent-burden/releases/download/v1.1.0/Metro-Rent-Burden-2024.xlsx) for the same 386 metros. It includes formulas, original CSV fields and source uncertainty notes. [Workbook instructions and verification limits](WORKBOOK.md). No new observations or data year are added.
