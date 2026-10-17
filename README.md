@@ -50,6 +50,20 @@ The chart chooses the ten largest computable renter-unit denominators and displa
 
 The [35-column field guide](DATA-DICTIONARY.txt) and [custom JSON dictionary](data-dictionary.json) describe every column in CSV order, including the two different percentage denominators, the 0–100 percentage scale and all 11 source estimate/margin-of-error pairs. Run `python verify_dictionary.py` from the current repository root to check this fixed 2024 snapshot against the dictionary and preserved source metadata. The checker does not validate future vintages, derive percentage uncertainty or test Excel. This repository documentation companion is newer than the v1.1.1 release archive; the published CSV, chart and workbook are unchanged.
 
+## Look up a metro locally
+
+From a checkout of this repository, use Python's standard library to search the stored metro names or select exact CBSA codes:
+
+```sh
+python3 lookup_metro.py --search "Phoenix"
+python3 lookup_metro.py --code 38060
+python3 lookup_metro.py --code 38060 --code 31080
+```
+
+The command verifies the fixed CSV and source metadata against the dictionary, then prints JSON with every original field, including all 11 estimate/MOE pairs. Values remain CSV strings; percentages are on the 0–100 scale. Results preserve CSV order and do not rank metros. A name search returns every substring match; use the displayed exact code to select a specific metro. An unknown code fails instead of returning partial results. No name matches means no matching row, not zero burden.
+
+The output states the two denominator definitions, nested thresholds and uncertainty limits. It makes no network request or dataset change. This repository helper adds no data year, observations or derived percentage MOEs and is not included in the existing v1.1.1 release archive.
+
 ## Excel companion
 
 [Download the filterable workbook](https://github.com/ahmadreza-smdi/metro-rent-burden/releases/download/v1.1.0/Metro-Rent-Burden-2024.xlsx) for the same 386 metros. It includes formulas, original CSV fields and source uncertainty notes. [Workbook instructions and verification limits](WORKBOOK.md). No new observations or data year are added.
