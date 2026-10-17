@@ -12,8 +12,6 @@ def main():
  for name,url in sources:
   target=raw/name
   if target.exists():data=target.read_bytes();state='existing snapshot retained'
-  elif a.year==2024 and name.endswith('geographies.txt'):
-   original=root.parent/'data-study/raw/acs-2024-geographies.txt';data=original.read_bytes();target.write_bytes(data);state='existing official source snapshot reused'
   else:
    with urllib.request.urlopen(url,timeout=40) as response:data=response.read()
    if not data.startswith((b'GEO_ID|',b'FILEID|')):raise ValueError('Unexpected public table response; stop, no retry/key signup')

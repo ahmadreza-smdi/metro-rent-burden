@@ -3,6 +3,24 @@
 import argparse,csv,hashlib,json
 from pathlib import Path
 
+def verify_snapshot(root,year):
+    """Reject a changed or incomplete saved snapshot before writing outputs."""
+    receipt_path=root/f'source-{year}.json'
+    if not receipt_path.is_file():raise ValueError('Missing source receipt: '+receipt_path.name)
+    receipt=json.loads(receipt_path.read_text(encoding='utf-8'))
+    if receipt.get('survey_year')!=year:raise ValueError('Source receipt year mismatch')
+    expected={f'raw/{year}-b25070.dat',f'raw/{year}-geographies.txt'}
+    sources=receipt.get('sources',[])
+    if len(sources)!=2 or {s.get('file') for s in sources}!=expected:
+        raise ValueError('Source receipt must identify both unique raw files')
+    for source in sources:
+        path=root/source['file']
+        if not path.is_file():raise ValueError('Missing source snapshot: '+source['file'])
+        data=path.read_bytes()
+        if hashlib.sha256(data).hexdigest()!=source.get('sha256'):
+            raise ValueError('Source snapshot hash mismatch: '+source['file'])
+        if len(data)!=source.get('bytes'):raise ValueError('Source snapshot byte-count mismatch: '+source['file'])
+
 def integer(value):
     """Preserve unavailable/sentinel counts as unknown, never zero."""
     try:n=int(value)
@@ -22,6 +40,7 @@ def measures(row):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--year',type=int,default=2024);args=parser.parse_args()
     root=Path(__file__).resolve().parent;year=args.year
+    verify_snapshot(root,year)
     with (root/f'raw/{year}-geographies.txt').open(newline='',encoding='utf-8-sig') as f:geos={r['GEO_ID']:r for r in csv.DictReader(f,delimiter='|')}
     with (root/f'raw/{year}-b25070.dat').open(newline='',encoding='utf-8-sig') as f:raw=list(csv.DictReader(f,delimiter='|'))
     selected=[];excluded=[];national=None

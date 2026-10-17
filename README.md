@@ -49,12 +49,14 @@ The chart chooses the ten largest computable renter-unit denominators and displa
 ```sh
 python3 download.py --year 2024
 python3 build.py --year 2024
-python3 -m unittest discover -s . -p test_build.py
+python3 -m unittest discover -s . -p "test*.py"
 python3 -m pip install -r requirements.txt
 python3 plot.py --year 2024
 ```
 
-Saved raw snapshots are retained, not silently replaced. `build.py` needs only Python's standard library. Plotting additionally uses Matplotlib. Source 2024 metadata is preserved for provenance; calculations use the public pipe-delimited summary file. Input hashes and deterministic output CSV allow independent checking. No credentials, telemetry or upload is required.
+Saved raw snapshots are retained, not silently replaced. Before calculating or writing outputs, the build checks both raw files against the year-specific source receipt's SHA-256 hashes and byte counts. A missing receipt, changed file or mismatched year stops the build. Keep the receipt alongside the raw files; these checks detect drift relative to that receipt, not malicious changes to both files and receipt. Missing raw files are downloaded directly from the documented Census URLs, without requiring another workspace folder.
+
+`build.py` needs only Python's standard library. Plotting additionally uses Matplotlib. Source 2024 metadata is preserved for provenance; calculations use the public pipe-delimited summary file. Input hashes and deterministic output CSV allow independent checking. No credentials, telemetry or upload is required.
 
 ## Reuse and citation
 

@@ -1,15 +1,15 @@
 {
   "files": {
     ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
-    ".github/workflows/check.yml": "c91f9099d358902752b886ee23b4abd05b412ab5f17d67050835e031dff2691d",
-    "CITATION.cff": "075445c4cd09232dbada9d923e2ae3d2a3b980417f99d316fd0a534d20fa25b6",
+    ".github/workflows/check.yml": "8c5105cd39b9511c2cb64a8b6964d7463a38ebb58c03ba62d4e70472e5603f5c",
+    "CITATION.cff": "b521257f35aa1062a74385e2645b221ee72c8cd49252bb5f4818165dee5d4cf1",
     "LICENSE": "d78c36e2bb3fca6b9b891ed530e209d228ea8c5118f814d0c7bbb217ca8b4ca9",
     "Metro-Rent-Burden-2024.xlsx": "a2bc85c9aa6e1e02fcfe5bad70fa86d7d2b6a3f3e684813d093f2301c9bba4cf",
-    "README.md": "26cd54bfb28972f0514971df51947fb21bc64be6c4cd5dae90a75f5923abffd7",
+    "README.md": "f3d62e21363d16b4594ead1836c93780302a87eeefe9ca05ce3e78eaab7100f1",
     "WORKBOOK.md": "f0ef3d1fb4eb6332c48d94e1416a50a0fd697b325cc87bc130900f716947a61d",
-    "build.py": "7bde8e901a9ec2cbc8559d45badaffc6c3d4e5f66735468025264de72914afea",
+    "build.py": "05b66a277550a7cc241ee7c45349c754a4cb1377bdc2e1255d2f45805c7a76b9",
     "chart-alt-2024.txt": "9a3d202092d3e367d4c77faddd7348580c649aed2f8b78d050b3e1fdb5283048",
-    "download.py": "195aa142f9f17e07ece5369dd9bdfe2997c418143f26f77c743282adcf790c46",
+    "download.py": "be160418a24d7f37789191f43e160622937fdd72c7a38814bce87f3322689ee6",
     "excluded-cbsa-2024.json": "ed650fdef4a351f8286823a17804ae84037b4e575f05c643a73d67f7eab3d2d4",
     "metro-rent-burden-2024.csv": "3f4f802c00efda62f2166cf0f6cfef99d0046becda55ba35c9563c232d84821f",
     "plot.py": "6c4e6e71a1decd5a33f66fb1c8b7106085c686f20372f5f3963cb67506f4e390",
@@ -22,6 +22,7 @@
     "source-2024.json": "afaec0cadc319bf7f6a1abfe73e27188c76f757bef9d75280a2e107885570aac",
     "summary-2024.json": "2f426f53d34e856b023922a068f7030ccc1ce946f508b54d36bc812e185e3bfb",
     "test_build.py": "c4edcd67c273249195da6b34d4194e457a2e4f579087e2e38e8419f14d6e69d9",
+    "test_snapshot.py": "c09683fd5ed8b56d10f39e951dba9c88d3552e804d791b168f83d4fba54863be",
     "verify_workbook.py": "4284a0b2fca7e5c6dca9f16efd032836b89397f01dcf07778bcb122e66a00b4f"
   },
   "scope": "OriginalcodeMIT; federalaggregateinputsretain source status; no private ops/reviews/credentials"
