@@ -40,6 +40,10 @@ ACS figures are survey estimates, not an exact respondent count. The CSV preserv
 
 The chart chooses the ten largest computable renter-unit denominators and displays them alphabetically. It does not choose the highest burden figures or rank statistical differences. Both threshold series overlap. See chart-alt-2024.txt for full alt text. No Census logo, endorsement, agency certification or new visual identity is implied.
 
+## Excel companion
+
+[Download the filterable workbook](https://github.com/ahmadreza-smdi/metro-rent-burden/releases/download/v1.1.0/Metro-Rent-Burden-2024.xlsx) for the same 386 metros. It includes formulas, original CSV fields and source uncertainty notes. [Workbook instructions and verification limits](WORKBOOK.md). No new observations or data year are added.
+
 ## Rebuild
 
 ```sh
