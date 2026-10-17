@@ -85,7 +85,7 @@ def format_text(result):
             '', f"{row['metro_name']} (CBSA {row['cbsa_code']})",
             f"Survey year: {row['survey_year']}; status: {row['status']}",
             'Total renter-occupied housing units: ' + value(row, 'renter_units_total'),
-            'Not-computed ratio: ' + value(row, 'not_computed_units') + ' units',
+            'Rent-to-income ratio not computed: ' + value(row, 'not_computed_units') + ' units',
             'Computable units (burden-share denominator): ' + value(row, 'computable_units'),
             'At least 30% of income in gross rent: ' + value(row, 'rent_30plus_pct', '%')
                 + ' (' + value(row, 'rent_30plus_units') + ' units)',
