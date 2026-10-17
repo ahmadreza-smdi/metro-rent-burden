@@ -64,6 +64,15 @@ The command verifies the fixed CSV and source metadata against the dictionary, t
 
 The output states the two denominator definitions, nested thresholds and uncertainty limits. It makes no network request or dataset change. This repository helper adds no data year, observations or derived percentage MOEs and is not included in the existing v1.1.1 release archive.
 
+For a readable summary of the same stored values, add `--format text`:
+
+```sh
+python3 lookup_metro.py --code 38060 --format text
+python3 lookup_metro.py --search "Phoenix" --format text
+```
+
+The text view names both denominators, keeps the original stored percentage precision, and distinguishes blank values from zero. It does not calculate new values or percentage uncertainty. It is a summary: use the default JSON (or `--format json`) for all 35 fields and all 11 source estimate/MOE pairs. An empty search result is not a zero-burden metro. Both formats retain the fixed 2024 survey year and source checksum.
+
 ## Excel companion
 
 [Download the filterable workbook](https://github.com/ahmadreza-smdi/metro-rent-burden/releases/download/v1.1.0/Metro-Rent-Burden-2024.xlsx) for the same 386 metros. It includes formulas, original CSV fields and source uncertainty notes. [Workbook instructions and verification limits](WORKBOOK.md). No new observations or data year are added.

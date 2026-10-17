@@ -64,17 +64,59 @@ def lookup(*, search=None, codes=None, root=ROOT):
         'rows': selected}
 
 
+def format_text(result):
+    """Read selected stored values without recalculating or rounding them."""
+    def value(row, key, suffix=''):
+        raw = row[key]
+        return 'Unavailable (blank in stored CSV)' if raw == '' else raw + suffix
+
+    lines = [
+        'Metro rent burden — ACS 2024',
+        f"By {result['author']['name']} — {result['author']['url']}",
+        f"Source: {result['source']['url']}",
+        f"Snapshot SHA-256: {result['snapshot']['sha256']}",
+        f"Matching metros: {result['selection']['matched_rows']}",
+        'Original CSV order; not a ranking.',
+    ]
+    if not result['rows']:
+        lines.append('No matching row in this search; this does not mean zero burden.')
+    for row in result['rows']:
+        lines.extend([
+            '', f"{row['metro_name']} (CBSA {row['cbsa_code']})",
+            f"Survey year: {row['survey_year']}; status: {row['status']}",
+            'Total renter-occupied housing units: ' + value(row, 'renter_units_total'),
+            'Not-computed ratio: ' + value(row, 'not_computed_units') + ' units',
+            'Computable units (burden-share denominator): ' + value(row, 'computable_units'),
+            'At least 30% of income in gross rent: ' + value(row, 'rent_30plus_pct', '%')
+                + ' (' + value(row, 'rent_30plus_units') + ' units)',
+            'At least 50% of income in gross rent: ' + value(row, 'rent_50plus_pct', '%')
+                + ' (' + value(row, 'rent_50plus_units') + ' units)',
+            'Not-computed share of ALL renter-occupied units: ' + value(row, 'not_computed_pct_all_renters', '%'),
+        ])
+    lines.extend([
+        '', 'Read before comparing:',
+        'The 50% group is inside the 30% group; do not add their shares.',
+        'Derived percentage margins of error and statistical significance are not calculated.',
+        'Blank values are unavailable, not zero. Stored precision is retained without rounding.',
+        'This fixed 2024 snapshot is not current asking rents or an investment ranking.',
+        'For all 35 original fields and all 11 source estimate/MOE pairs, use --format json.',
+    ])
+    return '\n'.join(lines)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--search', help='Case-insensitive substring of the published metro name')
     group.add_argument('--code', dest='codes', action='append', help='Exact five-digit CBSA code; repeat for multiple rows')
+    parser.add_argument('--format', dest='output_format', choices=('json', 'text'), default='json',
+                        help='JSON preserves all fields (default); text summarizes stored values and limits')
     args = parser.parse_args()
     try:
         result = lookup(search=args.search, codes=args.codes)
     except (ValueError, KeyError, OSError) as exc:
         parser.error(str(exc))
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    print(format_text(result) if args.output_format == 'text' else json.dumps(result, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':

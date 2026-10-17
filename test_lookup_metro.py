@@ -8,13 +8,51 @@ import sys
 import tempfile
 import unittest
 
-from lookup_metro import lookup, ROOT
+from lookup_metro import lookup, format_text, ROOT
 
 
 class LookupTests(unittest.TestCase):
     def setUp(self):
         with (ROOT / 'metro-rent-burden-2024.csv').open(newline='', encoding='utf-8') as f:
             self.rows = list(csv.DictReader(f))
+
+    def test_text_uses_exact_stored_values_and_denominator_labels(self):
+        result = lookup(codes=[self.rows[0]['cbsa_code'], self.rows[-1]['cbsa_code']])
+        text = format_text(result)
+        self.assertLess(text.index(self.rows[0]['metro_name']), text.index(self.rows[-1]['metro_name']))
+        for row in result['rows']:
+            self.assertIn(row['rent_30plus_pct'] + '%', text)
+            self.assertIn(row['rent_50plus_pct'] + '%', text)
+            self.assertIn('Computable units (burden-share denominator): ' + row['computable_units'], text)
+            self.assertIn('Not-computed share of ALL renter-occupied units: ' + row['not_computed_pct_all_renters'] + '%', text)
+        self.assertIn('all 11 source estimate/MOE pairs', text)
+        self.assertIn('not current asking rents', text)
+
+    def test_text_keeps_blank_zero_and_no_match_distinct(self):
+        result = lookup(codes=[self.rows[0]['cbsa_code']])
+        # Synthetic formatting-only control; not an observed metro value.
+        result['rows'][0]['rent_30plus_pct'] = ''
+        result['rows'][0]['rent_50plus_pct'] = '0'
+        text = format_text(result)
+        self.assertIn('At least 30% of income in gross rent: Unavailable (blank in stored CSV)', text)
+        self.assertIn('At least 50% of income in gross rent: 0%', text)
+        self.assertNotIn('Unavailable (blank in stored CSV)%', text)
+        empty = format_text(lookup(search='NO_SUCH_METRO_123456'))
+        self.assertIn('Matching metros: 0', empty)
+        self.assertIn('does not mean zero burden', empty)
+
+    def test_cli_text_and_default_json_and_unknown_code(self):
+        script = str(ROOT / 'lookup_metro.py')
+        args = [sys.executable, '-B', script, '--code', self.rows[0]['cbsa_code']]
+        with tempfile.TemporaryDirectory() as tmp:
+            default = subprocess.run(args, cwd=tmp, capture_output=True, text=True)
+            explicit = subprocess.run(args + ['--format', 'json'], cwd=tmp, capture_output=True, text=True)
+            text = subprocess.run(args + ['--format', 'text'], cwd=tmp, capture_output=True, text=True)
+            self.assertEqual(default.stdout, explicit.stdout)
+            self.assertEqual(text.returncode, 0, text.stderr)
+            self.assertEqual(text.stdout, format_text(json.loads(default.stdout)) + '\n')
+            bad = subprocess.run(args + ['--code', '00000', '--format', 'text'], cwd=tmp, capture_output=True, text=True)
+            self.assertEqual((bad.returncode, bad.stdout), (2, ''))
 
     def test_selection_preserves_every_field_and_source_order(self):
         codes = [self.rows[-1]['cbsa_code'], self.rows[0]['cbsa_code']]
