@@ -1,0 +1,32 @@
+{
+  "survey_year": 2024,
+  "selection": "Lowest numeric CBSA code in the fixed stored CSV; not selected by burden",
+  "source_csv_sha256": "3f4f802c00efda62f2166cf0f6cfef99d0046becda55ba35c9563c232d84821f",
+  "source_geo_id": "310M700US10180",
+  "source_metro": "Abilene, TX Metro Area",
+  "source_table": "ACS 1-year B25070",
+  "source_url": "https://data.census.gov/table/ACSDT1Y2024.B25070",
+  "computable_units": 20842,
+  "groups": [
+    {
+      "label": "Below 30%",
+      "estimated_units": 8787,
+      "share_pct": 42.16006141445159
+    },
+    {
+      "label": "30.0\u201349.9%",
+      "estimated_units": 6367,
+      "share_pct": 30.548891661068996
+    },
+    {
+      "label": "50% or more",
+      "estimated_units": 5688,
+      "share_pct": 27.291046924479417
+    }
+  ],
+  "at_least_30_pct": 57.83993858554841,
+  "not_computed_units": 2591,
+  "all_renter_occupied_units": 23433,
+  "derived_percentage_MOEs": "Not calculated",
+  "matplotlib_version": "3.11.2"
+}

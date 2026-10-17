@@ -44,6 +44,8 @@ The chart chooses the ten largest computable renter-unit denominators and displa
 
 [Two property studies, two different questions](READING-GUIDE.txt) is a short reading card explaining rent-burden estimates versus hypothetical ownership budgets, overlapping thresholds, missing values and the limits of investment comparisons. It adds no observations or calculations; the ownership study remains a separate dataset.
 
+[See why the two thresholds must not be added](docs/nested-thresholds.md): a single-metro illustration separates three disjoint income-share groups, using the same stored ACS 2024 data. It adds no new observations.
+
 ## CSV field dictionary
 
 The [35-column field guide](DATA-DICTIONARY.txt) and [custom JSON dictionary](data-dictionary.json) describe every column in CSV order, including the two different percentage denominators, the 0–100 percentage scale and all 11 source estimate/margin-of-error pairs. Run `python verify_dictionary.py` from the current repository root to check this fixed 2024 snapshot against the dictionary and preserved source metadata. The checker does not validate future vintages, derive percentage uncertainty or test Excel. This repository documentation companion is newer than the v1.1.1 release archive; the published CSV, chart and workbook are unchanged.
