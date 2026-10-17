@@ -40,6 +40,10 @@ ACS figures are survey estimates, not an exact respondent count. The CSV preserv
 
 The chart chooses the ten largest computable renter-unit denominators and displays them alphabetically. It does not choose the highest burden figures or rank statistical differences. Both threshold series overlap. See chart-alt-2024.txt for full alt text. No Census logo, endorsement, agency certification or new visual identity is implied.
 
+## Reading the results
+
+[Two property studies, two different questions](READING-GUIDE.txt) is a short reading card explaining rent-burden estimates versus hypothetical ownership budgets, overlapping thresholds, missing values and the limits of investment comparisons. It adds no observations or calculations; the ownership study remains a separate dataset.
+
 ## CSV field dictionary
 
 The [35-column field guide](DATA-DICTIONARY.txt) and [custom JSON dictionary](data-dictionary.json) describe every column in CSV order, including the two different percentage denominators, the 0–100 percentage scale and all 11 source estimate/margin-of-error pairs. Run `python verify_dictionary.py` from the current repository root to check this fixed 2024 snapshot against the dictionary and preserved source metadata. The checker does not validate future vintages, derive percentage uncertainty or test Excel. This repository documentation companion is newer than the v1.1.1 release archive; the published CSV, chart and workbook are unchanged.
