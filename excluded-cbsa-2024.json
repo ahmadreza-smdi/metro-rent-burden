@@ -1,0 +1,732 @@
+[
+  {
+    "geo_id": "310M700US10140",
+    "name": "Aberdeen, WA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US10300",
+    "name": "Adrian, MI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US10380",
+    "name": "Aguadilla, PR Metro Area",
+    "reason": "Puerto Rico: outside50states/DC scope"
+  },
+  {
+    "geo_id": "310M700US10460",
+    "name": "Alamogordo, NM Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US10620",
+    "name": "Albemarle, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US10700",
+    "name": "Albertville, AL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US11360",
+    "name": "Anderson Creek, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US11640",
+    "name": "Arecibo, PR Metro Area",
+    "reason": "Puerto Rico: outside50states/DC scope"
+  },
+  {
+    "geo_id": "310M700US11940",
+    "name": "Athens, TN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US11980",
+    "name": "Athens, TX Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US12180",
+    "name": "Auburn, NY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US12300",
+    "name": "Augusta-Waterville, ME Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US12660",
+    "name": "Baraboo, WI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US13180",
+    "name": "Beaver Dam, WI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US14100",
+    "name": "Bloomsburg-Berwick, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US14140",
+    "name": "Bluefield, WV-VA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US14660",
+    "name": "Brainerd, MN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US14940",
+    "name": "Brigham City, UT-ID Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US16260",
+    "name": "Cedar City, UT Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US16500",
+    "name": "Centralia, WA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US17060",
+    "name": "Chillicothe, OH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US17220",
+    "name": "Clarksburg, WV Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US17340",
+    "name": "Clearlake, CA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US17580",
+    "name": "Clovis, NM Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US18060",
+    "name": "Columbus, MS Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US18180",
+    "name": "Concord, NH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US18260",
+    "name": "Cookeville, TN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US18340",
+    "name": "Corbin, KY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US18500",
+    "name": "Corning, NY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US18900",
+    "name": "Crossville, TN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US18980",
+    "name": "Cullman, AL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US19060",
+    "name": "Cumberland, MD-WV Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US19180",
+    "name": "Danville, IL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US19260",
+    "name": "Danville, VA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US20180",
+    "name": "DuBois, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US20700",
+    "name": "East Stroudsburg, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US21700",
+    "name": "Eureka-Arcata, CA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US22060",
+    "name": "Faribault-Northfield, MN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US22100",
+    "name": "Farmington, MO Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US22300",
+    "name": "Findlay, OH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US22580",
+    "name": "Forest City, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US22840",
+    "name": "Fort Payne, AL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US23180",
+    "name": "Frankfort, KY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US23700",
+    "name": "Gallup, NM Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US24180",
+    "name": "Granbury, TX Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US24620",
+    "name": "Greeneville, TN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US24640",
+    "name": "Greenfield, MA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US24940",
+    "name": "Greenwood, SC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US25020",
+    "name": "Guayama, PR Metro Area",
+    "reason": "Puerto Rico: outside50states/DC scope"
+  },
+  {
+    "geo_id": "310M700US25720",
+    "name": "Heber, UT Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US25840",
+    "name": "Hermiston-Pendleton, OR Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US25850",
+    "name": "Hermitage, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US25900",
+    "name": "Hilo-Kailua, HI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US26090",
+    "name": "Holland, MI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US26660",
+    "name": "Huntsville, TX Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US26860",
+    "name": "Indiana, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US27460",
+    "name": "Jamestown-Dunkirk, NY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US27600",
+    "name": "Jefferson, GA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US28060",
+    "name": "Kalispell, MT Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US28180",
+    "name": "Kapaa, HI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US28300",
+    "name": "Keene, NH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US28580",
+    "name": "Key West-Key Largo, FL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US28900",
+    "name": "Klamath Falls, OR Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US29060",
+    "name": "Laconia, NH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US29300",
+    "name": "LaGrange, GA-AL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US29860",
+    "name": "Laurel, MS Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US30150",
+    "name": "Lebanon-Claremont, NH-VT Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US31260",
+    "name": "Lufkin, TX Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US31300",
+    "name": "Lumberton, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US31820",
+    "name": "Manitowoc, WI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US31940",
+    "name": "Marinette, WI-MI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US31980",
+    "name": "Marion, IN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US32060",
+    "name": "Marion-Herrin, IL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US32100",
+    "name": "Marquette, MI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US32390",
+    "name": "Massena-Ogdensburg, NY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US32420",
+    "name": "Mayag\u00fcez, PR Metro Area",
+    "reason": "Puerto Rico: outside50states/DC scope"
+  },
+  {
+    "geo_id": "310M700US32740",
+    "name": "Meadville, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US32940",
+    "name": "Meridian, MS Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US33910",
+    "name": "Monticello, NY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US33980",
+    "name": "Morehead City, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US34180",
+    "name": "Moses Lake, WA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US34340",
+    "name": "Mount Airy, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US34380",
+    "name": "Mount Pleasant, MI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US34680",
+    "name": "Murrells Inlet, SC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US34780",
+    "name": "Muskogee, OK Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US34860",
+    "name": "Nacogdoches, TX Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US35100",
+    "name": "New Bern, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US35340",
+    "name": "New Iberia, LA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US35420",
+    "name": "New Philadelphia-Dover, OH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US35900",
+    "name": "North Wilkesboro, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US36020",
+    "name": "Oak Harbor, WA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US36460",
+    "name": "Olean, NY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US36660",
+    "name": "Opelousas, LA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US36700",
+    "name": "Orangeburg, SC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US36837",
+    "name": "Ottawa, IL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US37020",
+    "name": "Owosso, MI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US37060",
+    "name": "Oxford, MS Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US37260",
+    "name": "Palatka, FL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US38210",
+    "name": "Pikeville, KY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US38220",
+    "name": "Pine Bluff, AR Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US38460",
+    "name": "Plattsburgh, NY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US38660",
+    "name": "Ponce, PR Metro Area",
+    "reason": "Puerto Rico: outside50states/DC scope"
+  },
+  {
+    "geo_id": "310M700US38820",
+    "name": "Port Angeles, WA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US39020",
+    "name": "Portsmouth, OH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US39060",
+    "name": "Pottsville, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US39480",
+    "name": "Putnam, CT Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US39500",
+    "name": "Quincy, IL-MO Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US39940",
+    "name": "Rexburg, ID Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US39980",
+    "name": "Richmond, IN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US40080",
+    "name": "Richmond-Berea, KY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US40090",
+    "name": "Rifle, CO Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US40100",
+    "name": "Rio Grande City-Roma, TX Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US40260",
+    "name": "Roanoke Rapids, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US40700",
+    "name": "Roseburg, OR Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US40780",
+    "name": "Russellville, AR Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US41400",
+    "name": "Salem, OH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US41820",
+    "name": "Sanford, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US41980",
+    "name": "San Juan-Bayam\u00f3n-Caguas, PR Metro Area",
+    "reason": "Puerto Rico: outside50states/DC scope"
+  },
+  {
+    "geo_id": "310M700US42580",
+    "name": "Seaford, DE Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US42620",
+    "name": "Searcy, AR Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US42860",
+    "name": "Seneca, SC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US42940",
+    "name": "Sevierville, TN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US43060",
+    "name": "Shawnee, OK Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US43140",
+    "name": "Shelby-Kings Mountain, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US43220",
+    "name": "Shelton, WA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US43320",
+    "name": "Show Low, AZ Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US43700",
+    "name": "Somerset, KY Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US43740",
+    "name": "Somerset, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US44340",
+    "name": "Statesboro, GA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US44620",
+    "name": "Stevens Point-Plover, WI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US44660",
+    "name": "Stillwater, OK Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US44980",
+    "name": "Sunbury, PA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US45180",
+    "name": "Talladega-Sylacauga, AL Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US45620",
+    "name": "Thomasville, GA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US45860",
+    "name": "Torrington, CT Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US46020",
+    "name": "Truckee-Grass Valley, CA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US46100",
+    "name": "Tullahoma-Manchester, TN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US46180",
+    "name": "Tupelo, MS Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US46380",
+    "name": "Ukiah, CA Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US47700",
+    "name": "Warsaw, IN Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US48020",
+    "name": "Watertown-Fort Atkinson, WI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US48580",
+    "name": "Whitewater-Elkhorn, WI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US48980",
+    "name": "Wilson, NC Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US49220",
+    "name": "Wisconsin Rapids-Marshfield, WI Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US49300",
+    "name": "Wooster, OH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  },
+  {
+    "geo_id": "310M700US49780",
+    "name": "Zanesville, OH Micro Area",
+    "reason": "Micropolitan area: outside metropolitan scope"
+  }
+]
