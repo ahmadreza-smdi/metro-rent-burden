@@ -1,0 +1,41 @@
+METRO RENT BURDEN — OFFLINE LOOKUP COMPANION
+Ahmadreza Samadi | https://a-samadi.com/about.html
+
+Use this small companion to find rows in the fixed ACS 2024 rent-burden dataset. It includes the same 386 whole-metro rows, 35 stored fields, custom dictionary and source metadata. No new observations, percentages or geographic matches are created.
+
+START
+Unzip the complete archive, preserving its raw/ subfolder. Use Python 3.12 or newer. No packages need installing. Run the commands from the unpacked folder; if your Python command is named python rather than python3, substitute that executable and keep the arguments.
+
+1. Read one metro as text:
+   python3 -B lookup_metro.py --code 38060 --format text
+
+2. Search names and retain every original field in JSON:
+   python3 -B lookup_metro.py --search "Phoenix"
+
+3. Verify the stored CSV, dictionary and source metadata:
+   python3 -B verify_dictionary.py
+
+The supplied commands read local files and print to the terminal; they make no network requests and require no account or API key. They do not submit records or rewrite the CSV. The -B option avoids Python bytecode-cache files.
+
+READ THE NUMBERS
+The source universe is renter-occupied housing units. The 30%-plus and 50%-plus shares use units with a computable gross-rent-to-income ratio; units with no computed ratio are reported separately. The 50%-plus group is inside the 30%-plus group: do not add their shares. The not-computed percentage uses ALL renter-occupied units.
+
+The text view summarizes stored values. Default JSON preserves all 35 columns and all 11 source estimate/MOE pairs. Derived percentage MOEs and statistical significance are not calculated. No search match is not zero burden; an absent explicit code is an input error. Read READING-GUIDE.txt and DATA-DICTIONARY.txt for interpretation.
+
+This is a fixed 2024 statistical snapshot, not current asking rents, a property-level assessment or an investment ranking.
+
+SOURCE AND VERSION
+This is a main-branch download companion built from the exact helper commit below. It is separate from the tagged analysis release.
+Source repository: https://github.com/ahmadreza-smdi/metro-rent-burden
+Exact helper/dictionary/companion source commit:
+9b7e0a0f937ce844fcbaf4bd33d8eeaa1e7cf43f
+Underlying statistics: U.S. Census Bureau, 2024 ACS 1-year, Table B25070.
+https://data.census.gov/table/ACSDT1Y2024.B25070
+
+The bundled CITATION.cff records the existing underlying analysis software release v1.1.1. This lookup helper was added later on the source branch; this companion is not the v1.1.1 archive, a new tagged release, or a full raw-source rebuild. Record the exact helper commit above when citing its behavior. Author credit and AI-assistance notes in the original dictionary and reading card are retained. Independent reuse or agency endorsement is not claimed.
+
+LICENSE AND CHECKS
+Original code and companion documentation are MIT; retain LICENSE. Federal Census statistics are not relicensed MIT. The repository notes Census DS027's US employee-work rule and foreign-country/third-party exceptions; do not describe these data as worldwide CC0.
+https://www2.census.gov/foia/ds_policies/ds027.pdf
+
+CONTENTS.json lists hashes of the other ten files. These local hashes detect drift relative to this manifest; they do not authenticate a package if both data and manifest were replaced. The lookup also verifies the stored snapshot and source metadata against the custom dictionary. This compact companion omits the full raw-data rebuild, charts and Excel workbook; use the repository for those resources.

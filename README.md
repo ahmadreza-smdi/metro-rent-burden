@@ -73,6 +73,8 @@ python3 lookup_metro.py --search "Phoenix" --format text
 
 The text view names both denominators, keeps the original stored percentage precision, and distinguishes blank values from zero. It does not calculate new values or percentage uncertainty. It is a summary: use the default JSON (or `--format json`) for all 35 fields and all 11 source estimate/MOE pairs. An empty search result is not a zero-burden metro. Both formats retain the fixed 2024 survey year and source checksum.
 
+Prefer a compact offline download? [Get the 11-file lookup companion](downloads/Metro-Rent-Burden-Offline-Lookup.zip), extract the entire archive and read `START-HERE.txt`. It includes the same fixed CSV, dictionary, source metadata and Python lookup—not the full raw-data rebuild, chart or workbook. Python 3.12 or newer; no third-party packages or network needed for lookup. The included source/guide manifest records the exact helper commit. This main-branch companion is separate from the v1.1.1 release archive and adds no data observations or derived percentage uncertainty. Maintainers can rebuild it with `python3 -B scripts/build_lookup_kit.py` from a Git checkout containing the pinned source commit.
+
 ## Excel companion
 
 [Download the filterable workbook](https://github.com/ahmadreza-smdi/metro-rent-burden/releases/download/v1.1.0/Metro-Rent-Burden-2024.xlsx) for the same 386 metros. It includes formulas, original CSV fields and source uncertainty notes. [Workbook instructions and verification limits](WORKBOOK.md). No new observations or data year are added.
