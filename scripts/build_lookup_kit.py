@@ -7,7 +7,7 @@ import subprocess
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-COMMIT = '9b7e0a0f937ce844fcbaf4bd33d8eeaa1e7cf43f'
+COMMIT = '59be3b664fe52475040ad365a3aff013f751b66e'
 FILES = (
     'lookup_metro.py', 'verify_dictionary.py', 'metro-rent-burden-2024.csv',
     'data-dictionary.json', 'raw/2024-b25070-variables.json', 'LICENSE',
