@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: Samadi
     given-names: Ahmadreza
+    website: "https://a-samadi.com/about.html"
 url: "https://a-samadi.com/"
 abstract: "Reproducible descriptive shares at 30% and 50% gross-rent-to-income thresholds. Not-computed units excluded and reported. Published source MOEs retained; derived percentage MOEs not calculated."
 license: MIT
