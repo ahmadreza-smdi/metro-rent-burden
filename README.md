@@ -114,3 +114,11 @@ If you also use the field dictionary:
 > Samadi, Ahmadreza (2026). Rent-burden CSV field guide — ACS 2024 (repository commit 12005f17005124c1485e093de12f59312af5c430). https://github.com/ahmadreza-smdi/metro-rent-burden/blob/12005f17005124c1485e093de12f59312af5c430/DATA-DICTIONARY.txt
 
 These are suggested credits, not a certified citation style. The survey year is 2024; the analysis software release is dated 2026. Record the version or full commit you actually used. The field guide is a separate documentation companion and is not included in the version 1.1.1 archive. No DOI, agency endorsement, peer review or independent reuse is implied by these examples.
+
+## More public tools by [Ahmadreza Samadi](https://a-samadi.com/about.html)
+
+- **Record AI workflow costs:** [ai-workflow-cost](https://github.com/ahmadreza-smdi/ai-workflow-cost) totals caller-recorded attempt costs and accepted-result labels. It does not independently check output quality or calculate ROI.
+
+- **Inspect video publication dates:** [video-date-lint](https://github.com/ahmadreza-smdi/video-date-lint) checks dates and consistency in local video metadata. It does not certify actual publication, indexing or copyright clearance.
+
+Read each project's input rules and limits before use. Running one tool does not verify another tool's inputs or results.
