@@ -71,8 +71,8 @@ def format_text(result):
         return 'Unavailable (blank in stored CSV)' if raw == '' else raw + suffix
 
     lines = [
-        'Metro rent burden — ACS 2024',
-        f"By {result['author']['name']} — {result['author']['url']}",
+        'Metro rent burden - ACS 2024',
+        f"By {result['author']['name']} - {result['author']['url']}",
         f"Source: {result['source']['url']}",
         f"Snapshot SHA-256: {result['snapshot']['sha256']}",
         f"Matching metros: {result['selection']['matched_rows']}",
