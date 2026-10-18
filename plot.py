@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
 """Standalone scientific chart from rebuilt summary; no browser/network needed."""
-import argparse,json,textwrap
+import argparse,json,textwrap,html,re
 from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
+def accessible_svg(svg, year, alt):
+ """Give the unchanged drawing its existing complete text alternative."""
+ match=re.search(r'<svg\b[^>]*>',svg)
+ if match is None:raise ValueError('Chart SVG root is missing')
+ if 'aria-labelledby=' in match.group(0):raise ValueError('Chart SVG already has an accessible label')
+ opening=match.group(0)[:-1]+' role="img" aria-labelledby="chart-title chart-description">'
+ opening+='<title id="chart-title">'+html.escape(f'How much income goes to gross rent? | ACS {year}')+'</title>'
+ opening+='<desc id="chart-description">'+html.escape(alt)+'</desc>'
+ return svg[:match.start()]+opening+svg[match.end():]
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--year',type=int,default=2024);args=p.parse_args()
@@ -29,5 +39,8 @@ def main():
  alt=f'Grouped horizontal bar chart of ACS {args.year} point estimates for10 metropolitan areas selected by the largest computable renter-unit denominators, displayed alphabetically. '
  alt+='; '.join(f"{r['metro_name']}: {r['rent_30plus_pct']:.1f}% at least 30%, {r['rent_50plus_pct']:.1f}% at least 50%" for r in rows)
  alt+='. Both shares exclude not-computed units; threshold groups overlap. Derived margins of error not calculated; no statistical ranking.'
- (root/f'chart-alt-{args.year}.txt').write_text(alt+'\n');print('ChartPNG/SVG and complete alt text saved')
+ (root/f'chart-alt-{args.year}.txt').write_text(alt+'\n')
+ svg_path=root/f'rent-burden-{args.year}.svg'
+ svg_path.write_text(accessible_svg(svg_path.read_text(),args.year,alt))
+ print('ChartPNG/SVG and complete alt text saved')
 if __name__=='__main__':main()

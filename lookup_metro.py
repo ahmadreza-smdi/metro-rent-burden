@@ -70,11 +70,18 @@ def format_text(result):
         raw = row[key]
         return 'Unavailable (blank in stored CSV)' if raw == '' else raw + suffix
 
+    selection = result['selection']
+    selection_text = (
+        'Name substring (normalized): ' + json.dumps(selection['name_contains'], ensure_ascii=True)
+        if selection['name_contains'] is not None
+        else 'Requested CBSA codes: ' + ', '.join(selection['requested_codes'])
+    )
     lines = [
-        'Metro rent burden — ACS 2024',
-        f"By {result['author']['name']} — {result['author']['url']}",
+        'Metro rent burden - ACS 2024',
+        f"By {result['author']['name']} - {result['author']['url']}",
         f"Source: {result['source']['url']}",
         f"Snapshot SHA-256: {result['snapshot']['sha256']}",
+        selection_text,
         f"Matching metros: {result['selection']['matched_rows']}",
         'Original CSV order; not a ranking.',
     ]
@@ -116,7 +123,7 @@ def main():
         result = lookup(search=args.search, codes=args.codes)
     except (ValueError, KeyError, OSError) as exc:
         parser.error(str(exc))
-    print(format_text(result) if args.output_format == 'text' else json.dumps(result, ensure_ascii=False, indent=2))
+    print(format_text(result) if args.output_format == 'text' else json.dumps(result, ensure_ascii=True, indent=2))
 
 
 if __name__ == '__main__':

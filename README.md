@@ -50,6 +50,14 @@ The chart chooses the ten largest computable renter-unit denominators and displa
 
 The [35-column field guide](DATA-DICTIONARY.txt) and [custom JSON dictionary](data-dictionary.json) describe every column in CSV order, including the two different percentage denominators, the 0–100 percentage scale and all 11 source estimate/margin-of-error pairs. Run `python verify_dictionary.py` from the current repository root to check this fixed 2024 snapshot against the dictionary and preserved source metadata. The checker does not validate future vintages, derive percentage uncertainty or test Excel. This repository documentation companion is newer than the v1.1.1 release archive; the published CSV, chart and workbook are unchanged.
 
+### Unavailable inputs in rebuilt outputs
+
+In the source containing the unavailable-row correction, a row with a missing or sentinel required estimate keeps all 35 CSV columns. Its derived measures are blank, its status identifies the unavailable source estimate, and the raw estimate/MOE strings remain stored. This applies even when the first selected row is unavailable.
+
+The JSON summary reports `not_computed_total_selected` as `null` if any selected row lacks that derived count. It does not present a sum of only the available rows as the complete total. This is a conservative completeness rule, not a claim that every individual raw count in that row is missing.
+
+Synthetic boundary tests exercise these cases; they are not new observations in the fixed 2024 snapshot. Older tagged archives and the pinned offline lookup kit are not rebuilt by this source change. Record the exact source commit used.
+
 ## Look up a metro locally
 
 From a checkout of this repository, use Python's standard library to search the stored metro names or select exact CBSA codes:
@@ -72,6 +80,8 @@ python3 lookup_metro.py --search "Phoenix" --format text
 ```
 
 The text view names both denominators, keeps the original stored percentage precision, and distinguishes blank values from zero. It does not calculate new values or percentage uncertainty. It is a summary: use the default JSON (or `--format json`) for all 35 fields and all 11 source estimate/MOE pairs. An empty search result is not a zero-burden metro. Both formats retain the fixed 2024 survey year and source checksum.
+
+The current main-branch text view also records the normalized name substring or the requested CBSA codes, so a saved summary retains its selection context even when no row matches. Name queries are quoted with ASCII escapes for non-ASCII characters and line breaks; this keeps the selection on one line in restrictive terminals. Requested codes retain their input order; result rows still follow the original CSV order. Matching rules, stored values and JSON output are unchanged. This selection-context addition is not included in the pinned offline lookup ZIP or the v1.1.1 release archive.
 
 Prefer a compact offline download? [Get the 11-file lookup companion](downloads/Metro-Rent-Burden-Offline-Lookup.zip), extract the entire archive and read `START-HERE.txt`. It includes the same fixed CSV, dictionary, source metadata and Python lookup—not the full raw-data rebuild, chart or workbook. Python 3.12 or newer; no third-party packages or network needed for lookup. The included source/guide manifest records the exact helper commit. This main-branch companion is separate from the v1.1.1 release archive and adds no data observations or derived percentage uncertainty. Maintainers can rebuild it with `python3 -B scripts/build_lookup_kit.py` from a Git checkout containing the pinned source commit.
 
@@ -114,3 +124,11 @@ If you also use the field dictionary:
 > Samadi, Ahmadreza (2026). Rent-burden CSV field guide — ACS 2024 (repository commit 12005f17005124c1485e093de12f59312af5c430). https://github.com/ahmadreza-smdi/metro-rent-burden/blob/12005f17005124c1485e093de12f59312af5c430/DATA-DICTIONARY.txt
 
 These are suggested credits, not a certified citation style. The survey year is 2024; the analysis software release is dated 2026. Record the version or full commit you actually used. The field guide is a separate documentation companion and is not included in the version 1.1.1 archive. No DOI, agency endorsement, peer review or independent reuse is implied by these examples.
+
+## More public tools by [Ahmadreza Samadi](https://a-samadi.com/about.html)
+
+- **Record AI workflow costs:** [ai-workflow-cost](https://github.com/ahmadreza-smdi/ai-workflow-cost) totals caller-recorded attempt costs and accepted-result labels. It does not independently check output quality or calculate ROI.
+
+- **Inspect video publication dates:** [video-date-lint](https://github.com/ahmadreza-smdi/video-date-lint) checks dates and consistency in local video metadata. It does not certify actual publication, indexing or copyright clearance.
+
+Read each project's input rules and limits before use. Running one tool does not verify another tool's inputs or results.
