@@ -116,7 +116,7 @@ def main():
         result = lookup(search=args.search, codes=args.codes)
     except (ValueError, KeyError, OSError) as exc:
         parser.error(str(exc))
-    print(format_text(result) if args.output_format == 'text' else json.dumps(result, ensure_ascii=False, indent=2))
+    print(format_text(result) if args.output_format == 'text' else json.dumps(result, ensure_ascii=True, indent=2))
 
 
 if __name__ == '__main__':
