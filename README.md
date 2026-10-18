@@ -50,6 +50,14 @@ The chart chooses the ten largest computable renter-unit denominators and displa
 
 The [35-column field guide](DATA-DICTIONARY.txt) and [custom JSON dictionary](data-dictionary.json) describe every column in CSV order, including the two different percentage denominators, the 0–100 percentage scale and all 11 source estimate/margin-of-error pairs. Run `python verify_dictionary.py` from the current repository root to check this fixed 2024 snapshot against the dictionary and preserved source metadata. The checker does not validate future vintages, derive percentage uncertainty or test Excel. This repository documentation companion is newer than the v1.1.1 release archive; the published CSV, chart and workbook are unchanged.
 
+### Unavailable inputs in rebuilt outputs
+
+In the source containing the unavailable-row correction, a row with a missing or sentinel required estimate keeps all 35 CSV columns. Its derived measures are blank, its status identifies the unavailable source estimate, and the raw estimate/MOE strings remain stored. This applies even when the first selected row is unavailable.
+
+The JSON summary reports `not_computed_total_selected` as `null` if any selected row lacks that derived count. It does not present a sum of only the available rows as the complete total. This is a conservative completeness rule, not a claim that every individual raw count in that row is missing.
+
+Synthetic boundary tests exercise these cases; they are not new observations in the fixed 2024 snapshot. Older tagged archives and the pinned offline lookup kit are not rebuilt by this source change. Record the exact source commit used.
+
 ## Look up a metro locally
 
 From a checkout of this repository, use Python's standard library to search the stored metro names or select exact CBSA codes:
