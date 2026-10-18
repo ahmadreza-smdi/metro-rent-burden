@@ -18,6 +18,27 @@ class LookupTests(unittest.TestCase):
         with (ROOT / 'metro-rent-burden-2024.csv').open(newline='', encoding='utf-8') as f:
             self.rows = list(csv.DictReader(f))
 
+    def test_empty_text_result_keeps_escaped_normalized_search_context(self):
+        query = '  NO_SUCH_METRO\nدبی🙂  '
+        result = lookup(search=query)
+        text = format_text(result)
+        expected = 'Name substring (normalized): ' + json.dumps(query.strip().casefold(), ensure_ascii=True)
+        self.assertIn(expected, text.splitlines())
+        self.assertIn('Matching metros: 0', text)
+        self.assertIn('does not mean zero burden', text)
+        self.assertEqual(len([line for line in text.splitlines()
+                              if line.startswith('Name substring (normalized): ')]), 1)
+        text.encode('ascii', errors='strict')
+
+    def test_text_records_requested_codes_without_reordering_results(self):
+        codes = [self.rows[-1]['cbsa_code'], self.rows[0]['cbsa_code']]
+        result = lookup(codes=codes)
+        original = json.dumps(result, sort_keys=True)
+        text = format_text(result)
+        self.assertIn('Requested CBSA codes: ' + ', '.join(codes), text.splitlines())
+        self.assertEqual(result['rows'], [self.rows[0], self.rows[-1]])
+        self.assertEqual(json.dumps(result, sort_keys=True), original)
+
     def test_ascii_terminal_text_keeps_values_and_no_match_distinct(self):
         environment = dict(os.environ, PYTHONIOENCODING='ascii:strict')
         for args in [('--code', self.rows[0]['cbsa_code']),
