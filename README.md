@@ -1,6 +1,6 @@
 # How much household income goes to gross rent?
 
-A reproducible descriptive study by [Ahmadreza Samadi](https://a-samadi.com/about.html). Versioned source and aggregate data; no DOI is assigned. The companion website page is being prepared separately.
+A reproducible descriptive study by [Ahmadreza Samadi](https://a-samadi.com/about.html). Versioned source and aggregate data; no DOI is assigned. [Read the study and methods](https://a-samadi.com/studies/rent-burden/) on the author’s website, including the chart, data downloads and limitations.
 
 ## Vintage and scope
 
