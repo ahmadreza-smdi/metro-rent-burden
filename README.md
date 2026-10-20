@@ -1,5 +1,9 @@
 # How much household income goes to gross rent?
 
+For readers and analysts checking how much household income goes to gross rent across US metros.
+
+![ACS 2024 rent-burden chart; descriptive point estimates, not asking rents](rent-burden-2024.png)
+
 A reproducible descriptive study by [Ahmadreza Samadi](https://a-samadi.com/about.html). Versioned source and aggregate data; no DOI is assigned. [Read the study and methods](https://a-samadi.com/studies/rent-burden/) on the author’s website, including the chart, data downloads and limitations.
 
 ## Vintage and scope
